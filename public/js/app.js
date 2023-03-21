@@ -9,7 +9,7 @@ formEle.addEventListener('submit', (e) => {
     message_2.textContent = ''
     message_1.textContent = 'loading...'
     const address = inputEle.value
-    fetch('http://localhost:3000/weather?address=' + address).then((response) => {
+    fetch('/weather?address=' + address).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 message_1.textContent = data.error

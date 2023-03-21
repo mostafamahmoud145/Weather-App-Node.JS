@@ -2,9 +2,10 @@ const path = require('path')
 const express = require('express')
 const { json } = require('express')
 const hbs = require('hbs')
-const coord = require('./src/utils/geocode')
-const temp = require('./src/utils/forecast')
+const coord = require('./utils/geocode')
+const temp = require('./utils/forecast')
 
+const port = process.env.PORT || 3000
 const app = express()
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewDirectoryPath = path.join(__dirname, '../templates/views')
@@ -84,6 +85,6 @@ app.get('*', (req, res) => {
 })
 
 
-app.listen(3000, () => {
-    console.log("Server Is Work")
+app.listen(port, () => {
+    console.log("Server Is Work" + port)
 })
